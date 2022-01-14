@@ -1,10 +1,9 @@
-Short Description
-It should return a map of the counts of each word in the string
-Topics
+##Word Count
 
-    Maps
+Program counts how many word in the string
 
-Requirements
+#How to use:
+Run the command "go run main.go" + some sentence in the double quote as an argument
 
-    You need to implement the WordCount function inside word_count.go
-    Run tests via go test -v while in the task
+#How to run tests:
+To run tests go to the "service" directory and run the command "go test -v"
