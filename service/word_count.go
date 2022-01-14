@@ -4,7 +4,7 @@ import "strings"
 
 func WordCount(s string) map[string]int {
 	m := make(map[string]int)
-	s = deleteSymbols([]byte(s))
+	s = replaceWhiteSpaces(s)
 	for _, v := range strings.Split(s, " ") {
 		if len(v) != 0 {
 			m[v]++
@@ -13,15 +13,12 @@ func WordCount(s string) map[string]int {
 	return m
 }
 
-func deleteSymbols(sl []byte) string {
-	var s string
-	for i, v := range sl {
-		if v == 32 || (v > 64 && v < 91) || (v > 96 && v < 123) {
-			s += string(v)
-		}
-		if i != 0 && i != len(sl)-1 && v == '-' && sl[i-1] != ' ' && sl[i+1] != ' ' {
-			s += string(v)
+func replaceWhiteSpaces(s string) string {
+	b := []byte(s)
+	for i, v := range b {
+		if v == '\n' || v == '\t' {
+			b[i] = ' '
 		}
 	}
-	return s
+	return string(b)
 }
